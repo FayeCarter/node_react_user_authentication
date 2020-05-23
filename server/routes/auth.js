@@ -42,4 +42,23 @@ router.post("/register", async (req, res) => {
     res.status(500).send("Server Error");
   }
 })
+
+//login
+router.post("/login", async (req, res) => {
+  try {
+
+    // destructure res.body
+
+    // check if user exists -> throw error
+
+    // incoming == database password
+
+    //give token
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send("Server Error");
+  }
+})
+
+
 module.exports = router;

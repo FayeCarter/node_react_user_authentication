@@ -1,6 +1,5 @@
 CREATE DATABASE auth_database;
 
-
 create extension if not exists "uuid-ossp"
 
 CREATE TABLE users(

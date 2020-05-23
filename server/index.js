@@ -9,6 +9,10 @@ app.use(express.json());
 
 //routes
 
+//register and login routes
+
+app.use("/auth", require("./routes/auth"));
+
 
 app.listen(5000, () => {
 	console.log("server has started on port 5000")

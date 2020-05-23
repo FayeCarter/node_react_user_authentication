@@ -9,7 +9,6 @@ app.use(cors());
 app.use(express.json());
 
 //routes
-
 //register and login routes
 
 app.use("/auth", require("./routes/auth"));

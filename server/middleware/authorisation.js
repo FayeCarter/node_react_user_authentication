@@ -10,9 +10,11 @@ module.exports = async(req, res, next) => {
       return res.status(403).json("Not Authourised");
     }
 
-    const payload = jft.verify(jwtToken, process.env.jwtToken)
+    const payload = jwt.verify(jwtToken, process.env.jwtSecret)
 
     req.user = payload.user;
+
+    next()
 
   } catch (error) {
     console.error(error.message);

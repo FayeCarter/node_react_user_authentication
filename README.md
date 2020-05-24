@@ -49,4 +49,4 @@ nodemon index
 ```npm start```
 
 ## How the application works
-[App](output.gif)
+![App](output.gif)

@@ -1,5 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './App.css';
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 import { 
   BrowserRouter as Router,
@@ -12,6 +14,8 @@ import {
 import Dashboard from "./componenets/Dashboard"
 import Login from "./componenets/Login"
 import Register from "./componenets/Register"
+
+toast.configure()
 
 function App() {
 
@@ -32,7 +36,7 @@ function App() {
 
       const parsRes = await response.json();
       parsRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false)
-       
+
     } catch (error) {
       console.error(error.message)
     }

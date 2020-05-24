@@ -43,7 +43,6 @@ const Login = ({ setAuth }) => {
     
     } catch (error) {
       console.error(error.message)
-      
     }
   }
   return (

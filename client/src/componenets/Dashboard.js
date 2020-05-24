@@ -1,10 +1,41 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 const Dashboard = ({ setAuth }) => {
+
+  const [name, setName] = useState("");
+
+  const getName = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/dashboard/", {
+        method: "GET",
+        headers: { token: localStorage.token }
+      });
+
+      const parseData = await response.json();
+      setName(parseData.user_name);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const logout = (e) => {
+    e.preventDefault()
+    localStorage.removeItem("token")
+    setAuth(false)
+  }  
+
+  useEffect(() => {
+    getName();
+  }, []);
+
+
   return (
     <Fragment>
       <h1>Dashboard</h1>
-      <button onClick={() => setAuth(false)}>Logout</button>
+      <h2>User: { name }</h2>
+      <button 
+        className="btn btn-primary"
+        onClick={e => logout(e)} >Log out</button>
     </Fragment>
   );
 };
